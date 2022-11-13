@@ -24,6 +24,8 @@ const createBoxes = (amount) => {
     boxHeight = lastElementHeight + 10;
   }
   
+  const createdBoxesStorage = [];
+
   for (let index = 1; index <= amount; index += 1) {
     const box = document.createElement('div')
 
@@ -31,11 +33,15 @@ const createBoxes = (amount) => {
     box.style.height = `${boxHeight}px`
     box.style.backgroundColor = getRandomHexColor();
 
-    boxStorage.append(box);
+    
 
     boxWidth += 10;
     boxHeight += 10;
+
+    createdBoxesStorage.push(box)
   }
+  
+  boxStorage.append(...createdBoxesStorage);
 }
 
 
